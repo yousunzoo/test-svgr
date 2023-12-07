@@ -4,6 +4,7 @@
 
 - [ ] svg 파일 저장 시 아이콘 컴포넌트 생성 자동화
 - [ ] 디자인 시스템에 맞게 아이콘 컴포넌트 Props 지정
+- [ ] 폴더명, 아이콘명에 따른 분류도 더 할 수 있는가? --- Progress
 
 ---
 
@@ -18,6 +19,43 @@
 
 - removeXMLNS : `xmls` 속성 제거
 - removeDimensions : viewBox 속성이 있을 경우, width / height 속성 제거
-- removeUselessStorkeAndFill : 불필요한 stroke, fill 속성 제거
+- removeUselessStrokeAndFill : 불필요한 stroke, fill 속성 제거
 - removeMetadata : `<metadata>` 제거
 - removeDoctype : `doctype` 선언 제거
+
+
+
+## SVGR Config 설정
+[SVGR Config 옵션 보기](https://react-svgr.com/docs/options)
+
+그 중에서 현재 이런 설정을 사용하고 있어요.
+
+```json
+{
+    "typescript": true,
+    "params": {},
+    "replaceAttrValues": {
+      "#121416": "{props.color || `#121416`}",
+      "#1C1B1F": "{props.color || `#1C1B1F`}"
+    },
+    "svgProps": {
+      "width": "{props.width || 24}",
+      "height": "{props.height || 24}",
+      "style": "{props.style || {}}",
+      "onClick": "{props.onClick}"
+    }
+}
+```
+
+## Command Line 설정
+위의 파일들을 바탕으로, 다음과 같은 코드가 작성되었어요!
+
+```
+"icons:create" : "npx @svgr/cli --no-dimensions --typescript -d ./src/lib/common/components/Icons ./public/static/icon --config-file ./scripts/icons/svgr-config.json --template ./scripts/icons/svg-template.js --svgo-config ./scripts/icons/svgo-config.json && node ./scripts/icons/setIcon"
+```
+
+`-d` 뒤부터 꼼꼼히 봐볼까요?
+
+```
+아이콘_컴포넌트가_저장될_경로 SVG_파일이_저장된_경로 SVGR_설정_파일 --template 아이콘_컴포넌트를_만드는데_필요한_템플릿_파일 --svgo-config SVGO_설정_파일 && node 아이콘_컴포넌트_만드는_파일
+```
