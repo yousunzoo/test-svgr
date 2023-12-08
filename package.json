@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "icons:create": "npx @svgr/cli --no-dimensions --typescript -d ./src/lib/common/components/Icons ./public/static/icon --config-file ./scripts/icons/svgr-config.json --template ./scripts/icons/svg-template.js --svgo-config ./scripts/icons/svgo-config.json && node ./scripts/icons/setIcon"
+    "icons:create": "npx @svgr/cli --ignore-existing --typescript -d ./src/lib/common/components/Icons ./public/static/icon --config-file ./scripts/icons/svgr-config.json --template ./scripts/icons/svg-template.js --svgo-config ./scripts/icons/svgo-config.json && node ./scripts/icons/setIcon"
   },
   "dependencies": {
     "@svgr/cli": "^8.1.0",
