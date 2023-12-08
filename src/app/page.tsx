@@ -1,11 +1,9 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import { Icon } from '@/lib/common/components/Icon/Icon'
+import { Icon } from "@/lib/common/components/Icon";
 
 export default function Home() {
   return (
     <div>
-      <Icon name='CommentChecked' />
+      <Icon name="Checked" />
     </div>
-  )
+  );
 }

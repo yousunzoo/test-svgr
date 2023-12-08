@@ -22,7 +22,7 @@ export const Icon = (props: IconProps) => {
     <Component
       width={size}
       height={size}
-      color={color ?? "var(--simentic-on-surface, #121416)"}
+      color={color ?? "#333"}
       {...rest}
     />
   );
