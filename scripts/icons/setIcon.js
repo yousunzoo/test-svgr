@@ -3,7 +3,7 @@ const path = require("node:path");
 
 const assetPath = path.resolve(__dirname, "../../public/static/icon");
 
-// Storybook 사용하게 된다면 다음과 같이 작성할 수 있어요!
+// Storybook을 사용하게 된다면 다음과 같이 작성할 수 있어요!
 const storyDist = path.resolve(
   __dirname,
   "../../src/lib/common/components/Icon/Icon.stories.tsx",
@@ -38,7 +38,7 @@ const rename = name => {
 
 const iconCode = `
 import React from "react";
-import * as Icons from "@/common/components/Icons";
+import * as Icons from "@/lib/common/components/Icons";
 
 export type IconName = keyof typeof Icons;
 export type IconsProps = (typeof Icons)[IconName];

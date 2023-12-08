@@ -1,6 +1,6 @@
 
 import React from "react";
-import * as Icons from "@/common/components/Icons";
+import * as Icons from "@/lib/common/components/Icons";
 
 export type IconName = keyof typeof Icons;
 export type IconsProps = (typeof Icons)[IconName];
