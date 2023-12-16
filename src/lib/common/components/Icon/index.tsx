@@ -7,7 +7,7 @@ export type IconsProps = (typeof Icons)[IconName];
 export type IconProps = Omit<IconsProps, "size" | "color"> & {
   name: IconName;
   color?: string;
-  size?: number;
+  size?: 16 | 20 | 24 | 32;
   onClick?: (...args: any) => void;
   className?: string;
   [key: string]: any
